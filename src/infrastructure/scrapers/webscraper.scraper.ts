@@ -7,10 +7,10 @@ export class WebScraperScraper {
   private httpClient = new AxiosHttpClient();
 
   async scrapeNotebooks(): Promise<Notebook[]> {
+    console.log("⏱️  Iniciando scraping");
     const startTime = Date.now();
     
     const totalPages = await this.getTotalPages();  
-    console.log(`⏱️  Iniciando scraping de ${totalPages} páginas...`);
 
     const pagePromises: Promise<Notebook[]>[] = [];
     
