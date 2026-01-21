@@ -41,22 +41,50 @@ export class WebScraperScraper {
         return;
       }
       const id = $(element).find(".title").attr("href");
-      // const title = $(element).find(".title").text().trim();
       const price = Number($(element).find(".price").text().trim().slice(1)) || 0;
+      const rating = Number($(element).find(".ratings p:nth-child(2)").attr("data-rating"));
+      const reviewCount = Number($(element).find(".review-count span").text().trim()) || 0;
+      const specs = this.parseDescription(description.join(","));
+      console.log({specs});
       // const [screenSize, processor, memory, storage, os] = $(element).find(".description").text().trim().split(",");
       notebooks.push(new Notebook({
         id: id?.trim(),
         title: title?.trim(),
         price: price,
         description: `${title}, ${description.join(",").trim()}`,
-        // screenSize: screenSize?.trim(),
-        // processor: processor?.trim(),
-        // memory: memory.trim(),
-        // storage: storage.trim(),
-        // os
+        rating,
+        reviewCount,
+        specs,
       }));
     });
     return notebooks;
+  }
+
+  private parseDescription(description: string) {
+    const parts = description
+      .split(",")
+      .map(part => part.trim())
+      .filter(part => part.length > 0);
+    
+    const isStorage = (s: string) => /(SSD|HDD|Flash|TB)/i.test(s);
+    const isMemory = (s: string) => /(\d+)\s*GB/i.test(s) && (s.toUpperCase().includes("RAM") || !isStorage(s));
+    
+    const storage = parts.find(s => isStorage(s)) || "";
+
+    const memory = parts.find(s => isMemory(s)) || "";
+
+    const screenSize = parts.find(s => /(\d+(\.\d+)?)\s*(inch|")/i.test(s)) || "";
+    const processor = parts.find(s => /(Intel|AMD|Core|Ryzen|Celeron|Pentium)/i.test(s)) || "";
+    const os = parts.find(s => /(Windows|Linux|Mac|OS)/i.test(s)) || "";
+
+    return {
+      screenSize,
+      processor,
+      storage,
+      memory,
+      os,
+      rawSpecsArray: parts
+    };
   }
 
   private filterAndSort(notebooks: Notebook[]): Notebook[] {

@@ -3,6 +3,15 @@ export interface INotebook {
     title: string;
     price: number;
     description: string;
+    rating: number;
+    reviewCount: number;
+    specs : {
+        screenSize?: string;
+        processor?: string;
+        memory?: string;
+        storage?: string;
+        os?: string;
+    };
     // screenSize: string;
     // processor: string;
     // memory: string;
@@ -15,6 +24,15 @@ export class Notebook implements INotebook {
   public title: string;
   public price: number;
   public description: string;
+  public rating: number;
+  public reviewCount: number;
+  public specs : {
+    screenSize?: string;
+    processor?: string;
+    memory?: string;
+    storage?: string;
+    os?: string;
+  };
   //   public screenSize: string;
   //   public processor: string;
   //   public memory: string;
@@ -29,6 +47,9 @@ export class Notebook implements INotebook {
     this.title = data.title ?? "";
     this.price = data.price ?? 0;
     this.description = data.description ?? "";
+    this.rating = data.rating ?? 0;
+    this.reviewCount = data.reviewCount ?? 0;
+    this.specs = data.specs || {};
     // this.screenSize = data.screenSize || "";
     // this.processor = data.processor || "";
     // this.memory = data.memory || "";
