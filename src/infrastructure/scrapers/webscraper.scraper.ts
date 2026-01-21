@@ -15,15 +15,15 @@ export class WebScraperScraper {
 
       $(".product-wrapper").each((_, element) => {
         const id = $(element).find(".title").attr("href");
-        const title = $(element).find(".title").text().trim();
+        // const title = $(element).find(".title").text().trim();
         const price = Number($(element).find(".price").text().trim().slice(1)) || 0;
         // const [screenSize, processor, memory, storage, os] = $(element).find(".description").text().trim().split(",");
-        const description = $(element).find(".description").text().trim();
+        const [title, ...description] = $(element).find(".description").text().trim().split(",");
         notebooks.push(new Notebook({
           id: id?.trim(),
           title: title?.trim(),
           price: price,
-          description,
+          description: `${title}, ${description.join(",").trim()}`,
           // screenSize: screenSize?.trim(),
           // processor: processor?.trim(),
           // memory: memory.trim(),
@@ -33,7 +33,7 @@ export class WebScraperScraper {
       });
     }
 
-    return notebooks;
+    return notebooks.filter(notebook => notebook.title.includes("Lenovo")).sort((a, b) => a.price - b.price);
   }
 }
 
