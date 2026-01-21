@@ -12,11 +12,6 @@ export interface INotebook {
         storage?: string;
         os?: string;
     };
-    // screenSize: string;
-    // processor: string;
-    // memory: string;
-    // storage: string;
-    // os: string;
 }
 
 export class Notebook implements INotebook {
@@ -33,11 +28,6 @@ export class Notebook implements INotebook {
     storage?: string;
     os?: string;
   };
-  //   public screenSize: string;
-  //   public processor: string;
-  //   public memory: string;
-  //   public storage: string;
-  //   public os: string;
 
   constructor(data: Partial<INotebook>) {
     if (!data.title?.trim()) {
@@ -50,10 +40,5 @@ export class Notebook implements INotebook {
     this.rating = data.rating ?? 0;
     this.reviewCount = data.reviewCount ?? 0;
     this.specs = data.specs || {};
-    // this.screenSize = data.screenSize || "";
-    // this.processor = data.processor || "";
-    // this.memory = data.memory || "";
-    // this.storage = data.storage || "";
-    // this.os = data.os || "";
   }
 }
