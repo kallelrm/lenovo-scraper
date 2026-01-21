@@ -3,8 +3,16 @@ import { Notebook } from "../../domain/entities/notebook.entity";
 import * as cheerio from "cheerio";
 
 export class WebScraperScraper {
-  private readonly url = "https://webscraper.io/test-sites/e-commerce/static/computers/laptops";
+  private readonly url: string;
   private httpClient = new AxiosHttpClient();
+
+  constructor() {
+    const url = process.env.SCRAPING_URL;
+    if (!url) {
+      throw new Error("SCRAPING_URL environment variable is required");
+    }
+    this.url = url;
+  }
 
   async scrapeNotebooks(): Promise<Notebook[]> {
     const totalPages = await this.getTotalPages();  
@@ -21,41 +29,53 @@ export class WebScraperScraper {
   }
 
   private async getTotalPages(): Promise<number> {
-    const response = await this.httpClient.get(`${this.url}?page=1`);
-    const html = response;
-    const $ = cheerio.load(html);
-
-    const totalPages = Number($("li.page-item:nth-child(14) > a:nth-child(1)").text());
-    return totalPages;
+    try {
+      const response = await this.httpClient.get(`${this.url}?page=1`);
+      const html = response;
+    
+      const $ = cheerio.load(html);
+    
+      const totalPages = Number($("li.page-item:nth-child(14) > a:nth-child(1)").text());
+      return totalPages;
+    } catch(error) {
+      console.error("Error fetching total pages:", error);
+      return 1;
+    }
   }
 
   private async scrapePage(page: number): Promise<Notebook[]> {
-    const response = await this.httpClient.get(`${this.url}?page=${page}`);
-    const html = response;
-    const $ = cheerio.load(html);
-    const notebooks: Notebook[] = [];
+    try {
 
-    $(".product-wrapper").each((_, element) => {
-      const [title, ...description] = $(element).find(".description").text().trim().split(",");
-      if (!title.includes("Lenovo")) {
-        return;
-      }
-      const id = $(element).find(".title").attr("href");
-      const price = Number($(element).find(".price").text().trim().slice(1)) || 0;
-      const rating = Number($(element).find(".ratings p:nth-child(2)").attr("data-rating"));
-      const reviewCount = Number($(element).find(".review-count span").text().trim()) || 0;
-      const specs = this.parseDescription(description.join(","));
-      notebooks.push(new Notebook({
-        id: id?.trim(),
-        title: title?.trim(),
-        price: price,
-        description: `${title}, ${description.join(",").trim()}`,
-        rating,
-        reviewCount,
-        specs,
-      }));
-    });
-    return notebooks;
+      const response = await this.httpClient.get(`${this.url}?page=${page}`);
+      const html = response;
+      const $ = cheerio.load(html);
+      const notebooks: Notebook[] = [];
+      
+      $(".product-wrapper").each((_, element) => {
+        const [title, ...description] = $(element).find(".description").text().trim().split(",");
+        if (!title.includes("Lenovo")) {
+          return;
+        }
+        const id = $(element).find(".title").attr("href");
+        const price = Number($(element).find(".price").text().trim().slice(1)) || 0;
+        const rating = Number($(element).find(".ratings p:nth-child(2)").attr("data-rating"));
+        const reviewCount = Number($(element).find(".review-count span").text().trim()) || 0;
+        const specs = this.parseDescription(description.join(","));
+        notebooks.push(new Notebook({
+          id: id?.trim(),
+          title: title?.trim(),
+          price: price,
+          description: `${title}, ${description.join(",").trim()}`,
+          rating,
+          reviewCount,
+          specs,
+        }));
+      });
+      return notebooks;
+    } catch (error) {
+      console.error(`Error scraping page ${page}:`, error);
+      return [];
+    }
   }
 
   private parseDescription(description: string) {
@@ -80,8 +100,7 @@ export class WebScraperScraper {
       processor,
       storage,
       memory,
-      os,
-      rawSpecsArray: parts
+      os
     };
   }
 

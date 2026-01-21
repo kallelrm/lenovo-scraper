@@ -1,5 +1,5 @@
 {
-  "source": "cache",
+  "source": "scraped",
   "data": [
     {
       "id": "/test-sites/e-commerce/static/product/63",
@@ -13,14 +13,7 @@
         "processor": "Celeron N3350 1.1GHz",
         "storage": "128GB SSD",
         "memory": "4GB",
-        "os": "Windows 10 Home",
-        "rawSpecsArray": [
-          "15.6\" HD",
-          "Celeron N3350 1.1GHz",
-          "4GB",
-          "128GB SSD",
-          "Windows 10 Home"
-        ]
+        "os": "Windows 10 Home"
       }
     },
     {
@@ -35,14 +28,7 @@
         "processor": "Celeron 3855U 1.6GHz",
         "storage": "128GB SSD",
         "memory": "4GB",
-        "os": "Windows 10 Home",
-        "rawSpecsArray": [
-          "13.3\" HD",
-          "Celeron 3855U 1.6GHz",
-          "4GB",
-          "128GB SSD",
-          "Windows 10 Home"
-        ]
+        "os": "Windows 10 Home"
       }
     },
     {
@@ -57,14 +43,7 @@
         "processor": "Core i3-6006U",
         "storage": "128GB SSD",
         "memory": "8GB",
-        "os": "Windows 10 Home",
-        "rawSpecsArray": [
-          "15.6\" HD",
-          "Core i3-6006U",
-          "8GB",
-          "128GB SSD",
-          "Windows 10 Home"
-        ]
+        "os": "Windows 10 Home"
       }
     },
     {
@@ -79,14 +58,7 @@
         "processor": "Core i3-6006U",
         "storage": "128GB SSD",
         "memory": "4GB",
-        "os": "Windows 10 Pro",
-        "rawSpecsArray": [
-          "15.6\" HD",
-          "Core i3-6006U",
-          "4GB",
-          "128GB SSD",
-          "Windows 10 Pro"
-        ]
+        "os": "Windows 10 Pro"
       }
     },
     {
@@ -101,14 +73,7 @@
         "processor": "Core i5-7200U",
         "storage": "",
         "memory": "4GB",
-        "os": "DOS",
-        "rawSpecsArray": [
-          "15.6\" HD",
-          "Core i5-7200U",
-          "4GB",
-          "500GB",
-          "DOS"
-        ]
+        "os": "DOS"
       }
     },
     {
@@ -123,14 +88,7 @@
         "processor": "Core i3-6006U",
         "storage": "128GB SSD",
         "memory": "4GB",
-        "os": "Windows 10 Home",
-        "rawSpecsArray": [
-          "14\" HD",
-          "Core i3-6006U",
-          "4GB",
-          "128GB SSD",
-          "Windows 10 Home"
-        ]
+        "os": "Windows 10 Home"
       }
     },
     {
@@ -145,14 +103,7 @@
         "processor": "Core i3-6006U",
         "storage": "128GB SSD",
         "memory": "4GB",
-        "os": "Windows 10 Home",
-        "rawSpecsArray": [
-          "15.6\" HD",
-          "Core i3-6006U",
-          "4GB",
-          "128GB SSD",
-          "Windows 10 Home"
-        ]
+        "os": "Windows 10 Home"
       }
     },
     {
@@ -167,14 +118,7 @@
         "processor": "Core i3-7100U",
         "storage": "128GB SSD",
         "memory": "4GB",
-        "os": "Windows 10 Pro",
-        "rawSpecsArray": [
-          "15.6\" FHD",
-          "Core i3-7100U",
-          "4GB",
-          "128GB SSD",
-          "Windows 10 Pro"
-        ]
+        "os": "Windows 10 Pro"
       }
     },
     {
@@ -189,14 +133,7 @@
         "processor": "Core i7-7500U",
         "storage": "256GB SSD",
         "memory": "8GB",
-        "os": "Windows 10 Pro",
-        "rawSpecsArray": [
-          "15.6\" FHD",
-          "Core i7-7500U",
-          "8GB",
-          "256GB SSD",
-          "Windows 10 Pro"
-        ]
+        "os": "Windows 10 Pro"
       }
     },
     {
@@ -211,14 +148,7 @@
         "processor": "Core i7-6600U",
         "storage": "256GB SSD",
         "memory": "8GB",
-        "os": "Windows 10 Pro",
-        "rawSpecsArray": [
-          "14\" FHD IPS",
-          "Core i7-6600U",
-          "8GB",
-          "256GB SSD",
-          "Windows 10 Pro"
-        ]
+        "os": "Windows 10 Pro"
       }
     },
     {
@@ -233,16 +163,7 @@
         "processor": "Core i5-7300HQ",
         "storage": "128GB SSD + 2 TB HDD",
         "memory": "8 GB",
-        "os": "FreeDOS + Windows 10 Home",
-        "rawSpecsArray": [
-          "Black",
-          "15.6\" FHD IPS",
-          "Core i5-7300HQ",
-          "8 GB",
-          "128GB SSD + 2 TB HDD",
-          "NVIDIA GeForce GTX 1060 6 GB",
-          "FreeDOS + Windows 10 Home"
-        ]
+        "os": "FreeDOS + Windows 10 Home"
       }
     },
     {
@@ -257,15 +178,7 @@
         "processor": "Core i7-7700HQ",
         "storage": "128 GB SSD + 1TB HDD",
         "memory": "8GB",
-        "os": "Windows 10 Home",
-        "rawSpecsArray": [
-          "15.6\" FHD",
-          "Core i7-7700HQ",
-          "8GB",
-          "128 GB SSD + 1TB HDD",
-          "GTX 1050 4GB",
-          "Windows 10 Home"
-        ]
+        "os": "Windows 10 Home"
       }
     },
     {
@@ -280,15 +193,7 @@
         "processor": "Core i7-7700HQ",
         "storage": "128GB SSD + 1TB",
         "memory": "8GB",
-        "os": "DOS",
-        "rawSpecsArray": [
-          "15.6\" FHD IPS",
-          "Core i7-7700HQ",
-          "8GB",
-          "128GB SSD + 1TB",
-          "GeForce GTX 1060 Max-Q 6GB",
-          "DOS"
-        ]
+        "os": "DOS"
       }
     },
     {
@@ -303,15 +208,7 @@
         "processor": "Core i5-7300HQ",
         "storage": "256GB SSD",
         "memory": "8GB",
-        "os": "Windows 10 Home",
-        "rawSpecsArray": [
-          "15.6\" FHD IPS",
-          "Core i5-7300HQ",
-          "8GB",
-          "256GB SSD",
-          "GeForce GTX 1050 2GB",
-          "Windows 10 Home"
-        ]
+        "os": "Windows 10 Home"
       }
     },
     {
@@ -326,14 +223,7 @@
         "processor": "Core i5-7200U",
         "storage": "256GB SSD",
         "memory": "8GB",
-        "os": "Windows 10 Home",
-        "rawSpecsArray": [
-          "13.9\" FHD Touch",
-          "Core i5-7200U",
-          "8GB",
-          "256GB SSD",
-          "Windows 10 Home"
-        ]
+        "os": "Windows 10 Home"
       }
     },
     {
@@ -348,15 +238,7 @@
         "processor": "Core i5-7200U",
         "storage": "256GB SSD",
         "memory": "8GB",
-        "os": "Windows 10 Pro",
-        "rawSpecsArray": [
-          "12.2\" IPS Touch",
-          "Core i5-7200U",
-          "8GB",
-          "256GB SSD",
-          "4G",
-          "Windows 10 Pro"
-        ]
+        "os": "Windows 10 Pro"
       }
     },
     {
@@ -371,14 +253,7 @@
         "processor": "Core i5-7200U",
         "storage": "256GB SSD",
         "memory": "8GB",
-        "os": "Windows 10 Pro",
-        "rawSpecsArray": [
-          "14\" FHD IPS",
-          "Core i5-7200U",
-          "8GB",
-          "256GB SSD",
-          "Windows 10 Pro"
-        ]
+        "os": "Windows 10 Pro"
       }
     },
     {
@@ -393,15 +268,7 @@
         "processor": "Core i5-7200U",
         "storage": "256GB SSD",
         "memory": "8GB",
-        "os": "Windows 10 Pro",
-        "rawSpecsArray": [
-          "13.3\" FHD IPS Touch",
-          "Core i5-7200U",
-          "8GB",
-          "256GB SSD",
-          "4G",
-          "Windows 10 Pro"
-        ]
+        "os": "Windows 10 Pro"
       }
     },
     {
@@ -416,16 +283,7 @@
         "processor": "Core i7-7700HQ",
         "storage": "128GB SSD + 2TB HDD",
         "memory": "8GB",
-        "os": "DOS",
-        "rawSpecsArray": [
-          "15.6\" FHD IPS",
-          "Core i7-7700HQ",
-          "8GB",
-          "128GB SSD + 2TB HDD",
-          "GeForce GTX 1060 6GB",
-          "DOS",
-          "RGB backlit keyboard"
-        ]
+        "os": "DOS"
       }
     }
   ]
