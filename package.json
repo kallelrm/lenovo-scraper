@@ -8,7 +8,7 @@
     "build": "tsc",
     "start": "node dist/server.js",
     "lint": "eslint . --ext .ts",
-    "test": "jest"
+    "test": "NODE_OPTIONS='--localstorage-file=./jest-storage' jest"
   },
   "keywords": [],
   "author": "",
