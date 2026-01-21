@@ -7,31 +7,31 @@ export class WebScraperScraper {
 
   async scrapeNotebooks(): Promise<Notebook[]> {
     const httpClient = new AxiosHttpClient();
-    const response = await httpClient.get(this.url);
-    const html = response;
-    const $ = cheerio.load(html);
     const notebooks: Notebook[] = [];
+    for (let i =0; i<=20; i++) {
+      const response = await httpClient.get(`${this.url}?page=${i}`);
+      const html = response;
+      const $ = cheerio.load(html);
 
-    $(".product-wrapper").each((_, element) => {
-      const id = $(element).find(".title").attr("href");
-      const title = $(element).find(".title").text().trim();
-      const price = Number($(element).find(".price").text().trim().slice(1)) || 0;
-      const [screenSize, processor, memory, storage, os] = $(element).find(".description").text().trim().split(",");
-      // const [screenSize, , memory, , ] = $(element).find(".description").text().trim().split(",");
-      // const test = $(element).find(".description").text().trim().split(",");
-      // console.log(test);
-      notebooks.push(new Notebook({
-        id: id?.trim(),
-        title: title?.trim(),
-        price: price,
-        screenSize: screenSize?.trim(),
-        processor: processor?.trim(),
-        memory: memory.trim(),
-        storage: storage.trim(),
-        os
-      }));
-
-    });
+      $(".product-wrapper").each((_, element) => {
+        const id = $(element).find(".title").attr("href");
+        const title = $(element).find(".title").text().trim();
+        const price = Number($(element).find(".price").text().trim().slice(1)) || 0;
+        // const [screenSize, processor, memory, storage, os] = $(element).find(".description").text().trim().split(",");
+        const description = $(element).find(".description").text().trim();
+        notebooks.push(new Notebook({
+          id: id?.trim(),
+          title: title?.trim(),
+          price: price,
+          description,
+          // screenSize: screenSize?.trim(),
+          // processor: processor?.trim(),
+          // memory: memory.trim(),
+          // storage: storage.trim(),
+          // os
+        }));
+      });
+    }
 
     return notebooks;
   }
