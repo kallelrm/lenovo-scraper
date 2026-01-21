@@ -7,9 +7,6 @@ export class WebScraperScraper {
   private httpClient = new AxiosHttpClient();
 
   async scrapeNotebooks(): Promise<Notebook[]> {
-    console.log("⏱️  Iniciando scraping");
-    const startTime = Date.now();
-    
     const totalPages = await this.getTotalPages();  
 
     const pagePromises: Promise<Notebook[]>[] = [];
@@ -19,10 +16,6 @@ export class WebScraperScraper {
     }
     const pageResults = await Promise.all(pagePromises);
     const allNotebooks = pageResults.flat();
-
-    const endTime = Date.now();
-    const duration = (endTime - startTime) / 1000;
-    console.log(`🏁 Concluído em ${duration}s (${allNotebooks.length} notebooks)`);
 
     return this.filterAndSort(allNotebooks);
   }
