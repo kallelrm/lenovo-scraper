@@ -19,9 +19,6 @@ app.use(express.json());
 
 app.use("/api", notebookRoutes);
 
-app.use((req: Request, res: Response) => {
-  res.status(404).json({ error: "Route not found" });
-});
 
 
 app.get("/health", (req, res) => {
@@ -32,6 +29,10 @@ app.get("/health", (req, res) => {
     uptime: process.uptime(),
     memory: process.memoryUsage()
   });
+});
+
+app.use((req: Request, res: Response) => {
+  res.status(404).json({ error: "Route not found" });
 });
 
 app.listen(PORT, () => {
